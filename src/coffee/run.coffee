@@ -33,9 +33,6 @@ if argv.logSilent
   logger.bunyanLogger.trace = -> # noop
   logger.bunyanLogger.debug = -> # noop
 
-getCountry = new GetCountry logger
-getCountry.run(argv.ipAddress)
-
 ProjectCredentialsConfig.create()
 .then (credentials) =>
   options =
@@ -43,8 +40,9 @@ ProjectCredentialsConfig.create()
       project_key: argv.projectKey
       client_id: argv.clientId
       client_secret: argv.clientSecret
+  getCountry = new GetCountry logger
   createCart = new CreateCart options
-  createCart.run(country)
+  createCart.run(getCountry.run(argv.ipAddress))
 
 .catch (err) =>
   logger.error err, "Problems on getting client credentials from config files."
