@@ -2,6 +2,8 @@ ipinfo = require 'ipinfo'
 
 class GetCountry
 
+  constructor: (@logger) ->
+
   run: (ipAddress = "") ->
     if ipAddress == ""
       ipinfo ipAddress, (err, info) ->
