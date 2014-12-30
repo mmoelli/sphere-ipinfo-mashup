@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '0.10'
+before_script:
+- npm install -g grunt-cli
+- ./create_config.sh
+script:
+- npm test
+- node lib/run --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID} --clientSecret
+  ${SPHERE_CLIENT_SECRET}
+env:
+  global:
+  - secure: AV3MqBYMKXHUADGaqJ+8PXii4Y6y1b7xhoDx2yCar6ui8Cc2EQh8BB7lSXjbhPt42HmJOlvysGNACfcsFif/EOhENa+8KDtJCZCMCdutJO0OolKA2o2LSs+SxExOO6P8lc0oDHVUnHlMsrogUC9NWPNXJ7N1UbGR0ekC5yQ2A18=
+  - secure: O02B/vFxg7FAQ8CrxYinhM2zy7ITMSG9t5w38KX/2j4ufDuzBo8VHd+iVT0k2gl+GQiSxRs7gPKj2uE+SGwDooHBnusGsHJkoDZH+YUhmiLAoB0RWXX4k9bXjVeWRAXBg+MVdoD2KEicJ2pwsTEtxTTmfubn6x2RUlo3oWbXABA=
+  - secure: CbwIIFjNOEjrAob9zZDZ7DAug/Ez+h+Tqnk/7kZKg5cujpudL4JiMmpd4r6gmzR6jIphIZtE9UDiv5VqlWYk8jxVAuS/NQsm2SYuj/m7ddwGoqCZ0DYFcbcGA0izjKcFKveVl5Jo7sdZPpOe1epeG+BAj6QcFAsbK6I3DjnQNIM=
