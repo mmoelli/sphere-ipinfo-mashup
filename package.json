@@ -1,0 +1,58 @@
+{
+  "name": "sphere-ipinfo-mashup",
+  "description": "Create carts in SPHERE.IO with information based on your IP address.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/mmoelli/sphere-ipinfo-mashup",
+  "private": false,
+  "author": {
+    "name": "Martin Möllmann",
+    "email": "martin.moellmann@commercetools.de"
+  },
+  "maintainers": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mmoelli/sphere-ipinfo-mashup.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mmoelli/sphere-ipinfo-mashup/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mmoelli/sphere-ipinfo-mashup/blob/master/LICENSE"
+    }
+  ],
+  "main": "lib/run",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "scripts": {
+    "test": "grunt coverage"
+  },
+  "dependencies": {
+    "sphere-node-sdk": "1.2.0",
+    "sphere-node-utils": "0.6.0",
+    "optimist": "0.6.1",
+    "ipinfo": "1.0.0"
+  },
+  "devDependencies": {
+    "grunt": "0.4.4",
+    "grunt-bump": "0.0.13",
+    "grunt-coffeelint": "0.0.8",
+    "grunt-contrib-clean": "0.5.0",
+    "grunt-contrib-coffee": "0.10.1",
+    "grunt-contrib-concat": "0.4.0",
+    "grunt-contrib-watch": "0.6.1",
+    "grunt-shell": "0.6.4",
+    "istanbul": "0.2.7",
+    "jasmine-node": "1.13.0",
+    "sphere-coffeelint": "git://github.com/sphereio/sphere-coffeelint.git#master"
+  },
+  "keywords": [
+    "sphere",
+    "sphereio",
+    "ipinfo",
+    "carts",
+    "country"
+  ]
+}
