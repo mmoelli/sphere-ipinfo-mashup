@@ -1,23 +1,23 @@
 ipinfo = require 'ipinfo'
+Promise = require 'bluebird'
 
 class GetCountry
 
   constructor: (@logger) ->
 
   run: (ipAddress = "") ->
-    if ipAddress is ''
-      ipinfo (err, info) ->
-        if err
-          logger.error err, 'Oops, something went wrong when trying to reach ipinfo.io API.'
-          @exitCode = 1
-
-        @country = info.country
-    else
-      ipinfo ipAddress, (err, info) ->
-        if err
-          logger.error err, 'Oops, something went wrong when trying to reach ipinfo.io API.'
-          @exitCode = 1
-
-        @country = info.country
+    new Promise (resolve, reject) ->
+      if ipAddress is ''
+        ipinfo (err, info) ->
+          if err
+            reject "Problem with reaching ipinfo.io API: #{err}"
+          else
+            resolve @country = info.country
+      else
+        ipinfo ipAddress, (err, info) ->
+          if err
+            reject "Problem with reaching ipinfo.io API: #{err}"
+          else
+            resolve @country = info.country
 
 module.exports = GetCountry

@@ -42,8 +42,13 @@ ProjectCredentialsConfig.create()
       client_secret: argv.clientSecret
   getCountry = new GetCountry logger
   createCart = new CreateCart options
-  createCart.run(getCountry.run(argv.ipAddress))
-
+  getCountry.run(argv.ipAddress)
+  .then(country) ->
+    createCart.run(country)
+  .catch (err) =>
+    logger.error err, "Problems while creating the cart."
+    @exitCode = 1
+  .done()
 .catch (err) =>
   logger.error err, "Problems on getting client credentials from config files."
   @exitCode = 1
