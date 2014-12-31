@@ -34,7 +34,7 @@ if argv.logSilent
   logger.bunyanLogger.debug = -> # noop
 
 ProjectCredentialsConfig.create()
-.then (credentials) =>
+.then (credentials) ->
   options =
     config: credentials.enrichCredentials
       project_key: argv.projectKey
@@ -43,13 +43,13 @@ ProjectCredentialsConfig.create()
   getCountry = new GetCountry logger
   createCart = new CreateCart options
   getCountry.run(argv.ipAddress)
-  .then(country) ->
+  .then (country) ->
     createCart.run(country)
-  .catch (err) =>
+  .catch (err) ->
     logger.error err, "Problems while creating the cart."
-    @exitCode = 1
+    process.exit(1)
   .done()
-.catch (err) =>
+.catch (err) ->
   logger.error err, "Problems on getting client credentials from config files."
-  @exitCode = 1
+  process.exit(1)
 .done()
