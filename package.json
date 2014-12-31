@@ -30,6 +30,7 @@
     "test": "grunt coverage"
   },
   "dependencies": {
+    "bluebird": "2.3.x",
     "sphere-node-sdk": "1.2.0",
     "sphere-node-utils": "0.6.0",
     "optimist": "0.6.1",
