@@ -1,13 +1,13 @@
 language: node_js
 node_js:
-- '0.10'
+  - '0.10'
 before_script:
-- npm install -g grunt-cli
-- ./create_config.sh
+  - npm install -g grunt-cli
+  - ./create_config.sh
+  - gem install cucumber aruba
 script:
-- npm test
-- node lib/run --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID} --clientSecret
-  ${SPHERE_CLIENT_SECRET}
+  - cucumber -t ~@wip
+  - node lib/run --projectKey ${SPHERE_PROJECT_KEY} --clientId ${SPHERE_CLIENT_ID} --clientSecret ${SPHERE_CLIENT_SECRET}
 env:
   global:
   - secure: AV3MqBYMKXHUADGaqJ+8PXii4Y6y1b7xhoDx2yCar6ui8Cc2EQh8BB7lSXjbhPt42HmJOlvysGNACfcsFif/EOhENa+8KDtJCZCMCdutJO0OolKA2o2LSs+SxExOO6P8lc0oDHVUnHlMsrogUC9NWPNXJ7N1UbGR0ekC5yQ2A18=
