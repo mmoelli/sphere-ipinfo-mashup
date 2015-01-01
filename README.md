@@ -15,7 +15,8 @@ node lib/run
     --projectKey <key>               your SPHERE.IO project-key
     --clientId <id>                 your OAuth client id for the SPHERE.IO API
     --clientSecret <secret>         your OAuth client secret for the SPHERE.IO API
-    --logLevel [level]              specifies log level (error|warn|info|debug|trace)   [default: info]
+    --ipAddress <ip-address>        the IP address you want to use for the cart creation  [if not set, the server address will be used]
+    --logLevel [level]              specifies log level (error|warn|info|debug|trace)     [default: info]
     --logDir [directory]            specifies log file directory [.]
-    --logSilent                     use console to print messages                       [default: false]
+    --logSilent                     use console to print messages                         [default: false]
 ```
