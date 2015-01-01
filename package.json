@@ -1,7 +1,7 @@
 {
   "name": "sphere-ipinfo-mashup",
   "description": "Create carts in SPHERE.IO with information based on your IP address.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/mmoelli/sphere-ipinfo-mashup",
   "private": false,
   "author": {
