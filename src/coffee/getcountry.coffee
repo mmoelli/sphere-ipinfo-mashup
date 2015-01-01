@@ -12,12 +12,14 @@ class GetCountry
           if err
             reject "Problem with reaching ipinfo.io API: #{err}"
           else
+            console.log "IP address used: " + info.ip
             resolve info.country
       else
         ipinfo ipAddress, (err, info) ->
           if err
             reject "Problem with reaching ipinfo.io API: #{err}"
           else
+            console.log "IP address used: " + info.ip
             resolve info.country
 
 module.exports = GetCountry
