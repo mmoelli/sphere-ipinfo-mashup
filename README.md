@@ -1,5 +1,7 @@
 # SPHERE.IO/ipinfo.io connector
 
+[![Build Status](https://travis-ci.org/mmoelli/sphere-ipinfo-mashup.svg?branch=master)]
+
 This small helper creates automatically carts in your [SPHERE.IO](https://admin.sphere.io) project where the country is set to the origin of the used IP address. To obtain the country the [ipinfo.io](http://ipinfo.io) API.
 
 ## Usage
