@@ -5,10 +5,10 @@ class CreateCart
   constructor: (options = {}) ->
     @client = new SphereClient options
 
-  run: (cartCountry) ->
+  run: (country, currency) =>
     cart =
-      country: cartCountry
-      currency: 'EUR'
+      country: country
+      currency: currency
 
     @client.carts.save(cart)
 
