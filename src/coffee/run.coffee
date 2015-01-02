@@ -1,6 +1,7 @@
 package_json = require '../package.json'
 {ExtendedLogger, ProjectCredentialsConfig} = require 'sphere-node-utils'
 GetCountry = require './getcountry'
+GetCurrency = require './getcurrency'
 CreateCart = require './createcart'
 
 argv = require('optimist')
@@ -41,12 +42,19 @@ ProjectCredentialsConfig.create()
       client_id: argv.clientId
       client_secret: argv.clientSecret
   getCountry = new GetCountry logger
+  getCurrency = new GetCurrency logger
   createCart = new CreateCart options
   getCountry.run(argv.ipAddress)
   .then (country) ->
-    createCart.run(country)
+    getCurrency.run(country)
+    .then (currency) ->
+      createCart.run(country, currency)
+    .catch (err) ->
+      logger.error err, "Problems while creating the cart."
+      process.exit(1)
+    .done()
   .catch (err) ->
-    logger.error err, "Problems while creating the cart."
+    logger.error err, "Problem while fetching currency."
     process.exit(1)
   .done()
 .catch (err) ->
